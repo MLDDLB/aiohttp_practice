@@ -1,0 +1,19 @@
+<!--aiohttpdemo_polls/templates/index.html-->
+{% extends "base.html" %}
+
+{% set title = "Main" %}
+
+{% block content %}
+{% if questions %}
+    <ul>
+    {% for question in questions %}
+    <li><a href="{{ url('poll', question_id=question.id) }}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+    <form action="/add_form" method="get">
+      <input type="submit" value="Add poll">
+    </form>
+{% endblock %}

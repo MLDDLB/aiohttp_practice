@@ -1,0 +1,15 @@
+<!--aiohttpdemo_polls/templates/add.html-->
+{% extends "base.html" %}
+
+{% set title = "Add poll" %}
+
+{% block content %}
+<form action="{{ url('add_poll') }}" method="post">
+  <input type="text" name="question" id="4"><label for="4">Enter a question: </label><br>
+  {% for i in range(3) %}
+  <input type="text" name='choice{{ i }}'id="{{ i }}">
+  <label for="{{ i }}">Enter choice {{ i }}:</label><br>
+  {% endfor %}
+  <input type="submit" value="Submit">
+  </form>
+{% endblock %}
